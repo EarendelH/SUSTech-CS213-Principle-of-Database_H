@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>12310401 &#x738b;&#x5b50;&#x6052; Lab2 Create table</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="12310401-王子恒-lab2-create-table">12310401 王子恒 Lab2 Create table</h1>
+<h2 id="experiment-1">Experiment 1</h2>
+<p><img src="file:////Users/earendelh/Documents/CS213DB/create%20table/image.png" alt="alt text"></p>
+<p>主键唯一性冲突，不能再创建<code>id=1</code>的项</p>
+<h2 id="experiment-2">Experiment 2</h2>
+<p><img src="file:////Users/earendelh/Documents/CS213DB/12310401_%E7%8E%8B%E5%AD%90%E6%81%92_create_table/image.png" alt="alt text"></p>
+<p>主键唯一性冲突，不能再创建<code>id=1</code>的项</p>
+<h2 id="experiment-3">Experiment 3</h2>
+<p><img src="file:////Users/earendelh/Documents/CS213DB/12310401_%E7%8E%8B%E5%AD%90%E6%81%92_create_table/image-1.png" alt="alt text"></p>
+<p>主键唯一性冲突，不能再创建(name='张三',dep='研发')的项</p>
+<h2 id="experiment-4">Experiment 4</h2>
+<p><img src="file:////Users/earendelh/Documents/CS213DB/12310401_%E7%8E%8B%E5%AD%90%E6%81%92_create_table/image-2.png" alt="alt text"></p>
+<p>一个表不能创建多个主键</p>
+<p><img src="file:////Users/earendelh/Documents/CS213DB/12310401_%E7%8E%8B%E5%AD%90%E6%81%92_create_table/image-3.png" alt="alt text"></p>
+<p>primary key 和 unique not null 的区别:</p>
+<pre><code>1. primary约束自动包含唯一且非空，同时一个表只能有一个primary key
+2. unique 可以有多个，但是不能有重复的值
+3. not null 不能是空值
+4. unique not null 指唯一的且不为空，但可以有多个unique not null 约束
+</code></pre>
+<h2 id="experiment-5">Experiment 5</h2>
+<p><img src="file:////Users/earendelh/Documents/CS213DB/12310401_%E7%8E%8B%E5%AD%90%E6%81%92_create_table/image-4.png" alt="alt text"></p>
+<h2 id="experiment-6">Experiment 6</h2>
+<p><img src="file:////Users/earendelh/Documents/CS213DB/12310401_%E7%8E%8B%E5%AD%90%E6%81%92_create_table/image-5.png" alt="alt text"></p>
+<p>dept中没有<code>id=3</code>的项，所以插入emp6时，由于外键约束，插入失败</p>
+<h2 id="experiment-7">Experiment 7</h2>
+<p><img src="file:////Users/earendelh/Documents/CS213DB/12310401_%E7%8E%8B%E5%AD%90%E6%81%92_create_table/image-6.png" alt="alt text"></p>
+<p>name有非空约束，不能插入空值</p>
+<h2 id="experiment-8">Experiment 8</h2>
+<p><img src="file:////Users/earendelh/Documents/CS213DB/12310401_%E7%8E%8B%E5%AD%90%E6%81%92_create_table/image-7.png" alt="alt text"></p>
+<p>违反了phone的唯一约束</p>
+<p><img src="file:////Users/earendelh/Documents/CS213DB/12310401_%E7%8E%8B%E5%AD%90%E6%81%92_create_table/image-8.png" alt="alt text"></p>
+<p>违反了主键的非空约束</p>
+<p><img src="file:////Users/earendelh/Documents/CS213DB/12310401_%E7%8E%8B%E5%AD%90%E6%81%92_create_table/image-9.png" alt="alt text"></p>
+<h2 id="experiment-9">Experiment 9</h2>
+<p><img src="file:////Users/earendelh/Documents/CS213DB/12310401_%E7%8E%8B%E5%AD%90%E6%81%92_create_table/image-10.png" alt="alt text"></p>
+<p>违反check要求的salary&gt;0</p>
+<h2 id="experiment-10">Experiment 10</h2>
+<p><img src="file:////Users/earendelh/Documents/CS213DB/12310401_%E7%8E%8B%E5%AD%90%E6%81%92_create_table/image-11.png" alt="alt text"></p>
+<p>由于插入<code>(1,'张三')</code>时没有指定<code>salary</code>,所以<code>salary</code>为default值<code>0.00</code></p>
+<h2 id="sql">SQL</h2>
+<pre><code>create table emp(
+    id int PRIMARY KEY,
+    name varchar(30),
+    salary NUMERIC(9,2)
+); 
+insert into emp values(1,'张三',3000);
+insert into emp values(2,'李四',3000);
+insert into emp values(1,'王五',3000); 
+
+create table emp2(
+id int,
+name varchar(30),
+salary numeric(9,2),
+constraint pk_emp2 primary key(id)
+);
+insert into emp2 values(1,'张三',3000);
+insert into emp2 values(2,'李四',3000);
+insert into emp2 values(1,'李四',3000);
+
+create table emp_union(
+name varchar(30),
+dep varchar(20),
+salary numeric(9,2),
+primary key(name, dep)
+);
+insert into emp_union values ('张三','研发',5000),
+('李四','人事',3000);
+insert into emp_union values ('张三','财务',3000);
+insert into emp_union values ('张三','研发',3000);
+
+create table emp_pk(
+id int primary key ,
+name varchar(30) primary key ,
+salary numeric(9,2)
+);
+create table emp_unu(
+id int unique not null ,
+name varchar(30) unique not null,
+salary numeric(9,2)
+);
+create table emp_pk_unu(
+id int primary key ,
+name varchar(30) unique not null,
+salary numeric(9,2)
+);
+
+create table dept(
+id int primary key,
+name varchar(40)
+);
+insert into dept values(1, '开发部');
+insert into dept values(2, '测试部');
+
+create table emp5(
+id int primary key,
+name varchar(30),
+salary numeric(9,2),
+deptId int REFERENCES dept(id)
+);
+
+insert into emp5 values(1,'张三',3000,1);
+insert into emp5 values(2,'李四',3000,3);
+
+
+select * from dept where id in (select deptId from emp5);
+
+create table emp6(
+id int primary key,
+name varchar(30),
+salary numeric(9,2),
+deptId int,
+constraint fk_dept FOREIGN KEY(deptId) references dept(id)
+);
+
+insert into emp6 values(1,'张三',3000,1);
+insert into emp6 values(2,'李四',3000,3);
+
+create table emp7(
+id int primary key,
+name varchar(30) not null,
+salary numeric(9,2)
+);
+insert into emp7 values(1,'张三',3000);
+insert into emp7 values(2,null,3000);
+select * from emp7;
+
+create table emp8(
+id int primary key,
+name varchar(30) not null,
+phone varchar(30) unique,
+salary numeric(9, 2)
+);
+
+insert into emp8 values(1, '张三','13611111111',3000);
+insert into emp8 values(2, '李四','13611111111',3000);
+insert into emp8 values(3, '王五',null,3000);
+insert into emp8 values(4, '罗六',null,3000);
+insert into emp8 values(null, '庄七','13622222222',3000);
+select * from emp8;
+
+create table emp9(
+id int primary key,
+name varchar(30) ,
+phone varchar(30) ,
+salary numeric(9,2) CHECK ( salary&gt;0 )
+);
+
+insert into emp9 values(1, '张三','13611111111',3000);
+insert into emp9 values(2, '李四','13611111111',-3000);
+
+create table emp10(
+id int primary key,
+name varchar(30) not null,
+salary numeric(9,2) default 0.0
+);
+insert into emp10(id, name) values(1,'张三');
+insert into emp10(id, name, salary) values(2,'李四',3000);
+select * from emp10;
+</code></pre>
+
+            
+            
+        </body>
+        </html>

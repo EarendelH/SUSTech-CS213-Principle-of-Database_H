@@ -1,0 +1,7 @@
+{
+    "java.project.referencedLibraries": [
+        "project1/Midterm_Project/Midterm_Project/src/postgresql-42.2.5.jar",
+        "project1/Midterm_Project/Midterm_Project/src/gson-2.10.1.jar",
+        "project1/Midterm_Project/Midterm_Project/src/commons-csv-1.10.0.jar"
+    ]
+}
